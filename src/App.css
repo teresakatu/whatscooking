@@ -1,0 +1,217 @@
+/* ---------- Layout ---------- */
+.dashboard {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ---------- Header ---------- */
+.header {
+  background-color: var(--accent);
+  color: white;
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 2rem;
+}
+
+.header p {
+  opacity: 0.9;
+}
+
+/* ---------- Loading / error / empty messages ---------- */
+.status {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.status-error {
+  color: #b42318;
+  border-color: #f4c7c3;
+  background-color: #fef3f2;
+}
+
+/* ---------- Stat cards ---------- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.stat-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.stat-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.stat-detail {
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+
+/* ---------- Filter bar ---------- */
+.filter-bar {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1 1 180px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.filter input,
+.filter select {
+  font: inherit;
+  font-size: 1rem;
+  color: var(--text);
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background-color: white;
+}
+
+.filter input:focus,
+.filter select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.clear-button {
+  font: inherit;
+  padding: 9px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.clear-button:hover {
+  background-color: var(--accent);
+  color: white;
+}
+
+/* ---------- Meal list ---------- */
+.meal-list {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+/* Each row is a 4-column grid: image | name | category | cuisine */
+.meal-row {
+  display: grid;
+  grid-template-columns: 64px 2fr 1fr 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 10px 16px;
+  border-top: 1px solid var(--border);
+}
+
+.meal-row-header {
+  border-top: none;
+  background-color: var(--accent-soft);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.meal-thumb {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  object-fit: cover;
+  background-color: var(--border); /* placeholder while the image loads */
+}
+
+.meal-name {
+  font-weight: 600;
+}
+
+/* ---------- Phone layout ---------- */
+@media (max-width: 640px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .clear-button {
+    width: 100%;
+  }
+
+  /* Hide the column headings and stack row details beside the image */
+  .meal-row-header {
+    display: none;
+  }
+
+  .meal-row {
+    grid-template-columns: 64px 1fr;
+    grid-template-areas:
+      'thumb name'
+      'thumb category'
+      'thumb cuisine';
+    row-gap: 2px;
+  }
+
+  .meal-thumb {
+    grid-area: thumb;
+  }
+
+  .meal-name {
+    grid-area: name;
+  }
+
+  .meal-tag {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .meal-category {
+    grid-area: category;
+  }
+
+  .meal-cuisine {
+    grid-area: cuisine;
+  }
+
+  /* Show "Category:" / "Cuisine:" labels since the header row is hidden */
+  .meal-tag::before {
+    content: attr(data-label) ': ';
+  }
+}
