@@ -46,6 +46,8 @@ The following **additional** features are implemented:
 * [x] Loading message while data is fetched and an error message if any request fails
 * [x] Dropdown options are loaded from the API (`list.php?c=list` and `list.php?a=list`) instead of being hard-coded
 * [x] Responsive layout: stat cards and list rows stack on phone-sized screens
+* [x] Polished UI: gradient header, icon stat cards, color-coded category and cuisine tags, a loading spinner, and a "Showing X of Y" meal count
+* [x] "Clear filters" is disabled when no filters are active, and the empty state has its own clear button
 
 ## Video Walkthrough
 
