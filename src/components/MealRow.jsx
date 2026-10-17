@@ -8,11 +8,11 @@ function MealRow({ meal }) {
         loading="lazy"
       />
       <span className="meal-name">{meal.strMeal}</span>
-      <span className="meal-tag meal-category" data-label="Category">
-        {meal.strCategory}
+      <span className="meal-category">
+        <span className="pill pill-category">{meal.strCategory}</span>
       </span>
-      <span className="meal-tag meal-cuisine" data-label="Cuisine">
-        {meal.strArea}
+      <span className="meal-cuisine">
+        <span className="pill pill-cuisine">📍 {meal.strArea}</span>
       </span>
     </div>
   )

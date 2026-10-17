@@ -77,17 +77,33 @@ function App() {
     setSelectedArea('All')
   }
 
+  const hasActiveFilters =
+    searchQuery !== '' || selectedCategory !== 'All' || selectedArea !== 'All'
+
   return (
     <div className="app">
       <Header />
 
       <main className="dashboard">
-        {loading && <p className="status">Loading meals…</p>}
+        {loading && (
+          <div className="status">
+            <div className="spinner" />
+            <p>Loading meals…</p>
+          </div>
+        )}
 
         {error && (
-          <p className="status status-error">
-            Something went wrong while loading meals: {error}
-          </p>
+          <div className="status status-error">
+            <span className="status-icon">⚠️</span>
+            <p>Something went wrong while loading meals: {error}</p>
+            <button
+              type="button"
+              className="button"
+              onClick={() => window.location.reload()}
+            >
+              Try again
+            </button>
+          </div>
         )}
 
         {!loading && !error && (
@@ -104,9 +120,14 @@ function App() {
               selectedArea={selectedArea}
               onAreaChange={setSelectedArea}
               onClear={clearFilters}
+              hasActiveFilters={hasActiveFilters}
             />
 
-            <MealList meals={filteredMeals} />
+            <MealList
+              meals={filteredMeals}
+              totalCount={meals.length}
+              onClear={clearFilters}
+            />
           </>
         )}
       </main>

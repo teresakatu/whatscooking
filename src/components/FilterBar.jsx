@@ -8,13 +8,14 @@ function FilterBar({
   selectedArea,
   onAreaChange,
   onClear,
+  hasActiveFilters,
 }) {
   return (
     <section className="filter-bar">
-      <label className="filter">
+      <label className="filter filter-search">
         <span>Search by name</span>
         <input
-          type="text"
+          type="search"
           placeholder="e.g. chicken, pie, curry…"
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}
@@ -51,7 +52,12 @@ function FilterBar({
         </select>
       </label>
 
-      <button type="button" className="clear-button" onClick={onClear}>
+      <button
+        type="button"
+        className="button button-secondary"
+        onClick={onClear}
+        disabled={!hasActiveFilters}
+      >
         Clear filters
       </button>
     </section>

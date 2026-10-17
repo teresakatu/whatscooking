@@ -20,23 +20,32 @@ function StatsCards({ meals }) {
   return (
     <section className="stats">
       <div className="stat-card">
-        <span className="stat-label">Total meals shown</span>
-        <span className="stat-value">{totalMeals}</span>
+        <span className="stat-icon">🍽️</span>
+        <div className="stat-text">
+          <span className="stat-label">Total meals shown</span>
+          <span className="stat-value">{totalMeals}</span>
+        </div>
       </div>
 
       <div className="stat-card">
-        <span className="stat-label">Most common cuisine</span>
-        <span className="stat-value">{topArea ?? '—'}</span>
-        {topArea && (
-          <span className="stat-detail">
-            {topAreaCount} {topAreaCount === 1 ? 'meal' : 'meals'}
-          </span>
-        )}
+        <span className="stat-icon">🌍</span>
+        <div className="stat-text">
+          <span className="stat-label">Most common cuisine</span>
+          <span className="stat-value">{topArea ?? '—'}</span>
+          {topArea && (
+            <span className="stat-detail">
+              {topAreaCount} {topAreaCount === 1 ? 'meal' : 'meals'}
+            </span>
+          )}
+        </div>
       </div>
 
       <div className="stat-card">
-        <span className="stat-label">Unique categories</span>
-        <span className="stat-value">{uniqueCategories}</span>
+        <span className="stat-icon">🏷️</span>
+        <div className="stat-text">
+          <span className="stat-label">Unique categories</span>
+          <span className="stat-value">{uniqueCategories}</span>
+        </div>
       </div>
     </section>
   )
