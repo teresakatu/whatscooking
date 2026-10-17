@@ -8,8 +8,6 @@ import './App.css'
 const API_BASE = 'https://www.themealdb.com/api/json/v1/1'
 const LETTERS = 'abcdefghijklmnopqrstuvwxyz'.split('')
 
-// Small helper: fetch a URL and return parsed JSON, throwing on HTTP errors
-// so a failed request ends up in our catch block.
 async function fetchJson(url) {
   const response = await fetch(url)
   if (!response.ok) {
@@ -19,37 +17,27 @@ async function fetchJson(url) {
 }
 
 function App() {
-  // Data from the API
   const [meals, setMeals] = useState([])
   const [categories, setCategories] = useState([])
   const [areas, setAreas] = useState([])
 
-  // Filter values controlled by the FilterBar
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [selectedArea, setSelectedArea] = useState('All')
 
-  // Request status
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
-  // Runs once after the first render (empty dependency array) to load data.
   useEffect(() => {
-    // useEffect callbacks can't be async themselves, so we define an async
-    // function inside and call it right away.
     const fetchData = async () => {
       try {
         setLoading(true)
         setError(null)
 
-        // One request per letter, a-z. Promise.all fires them in parallel and
-        // waits until every one has finished.
         const letterResults = await Promise.all(
           LETTERS.map((letter) => fetchJson(`${API_BASE}/search.php?f=${letter}`))
         )
 
-        // Each result looks like { meals: [...] } or { meals: null } when no
-        // meal starts with that letter. Skip the nulls and flatten the rest.
         const allMeals = letterResults
           .filter((result) => result.meals !== null)
           .flatMap((result) => result.meals)
@@ -72,7 +60,6 @@ function App() {
     fetchData()
   }, [])
 
-  // Apply all three filters at once. A meal stays only if it passes every check.
   const filteredMeals = meals.filter((meal) => {
     const matchesSearch = meal.strMeal
       .toLowerCase()

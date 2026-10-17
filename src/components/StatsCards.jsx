@@ -1,14 +1,11 @@
-// Receives the already-filtered meals, so every stat reflects what's on screen.
 function StatsCards({ meals }) {
   const totalMeals = meals.length
 
-  // Count how many meals belong to each cuisine: { Italian: 12, Mexican: 7, ... }
   const areaCounts = {}
   meals.forEach((meal) => {
     areaCounts[meal.strArea] = (areaCounts[meal.strArea] || 0) + 1
   })
 
-  // Find the cuisine with the highest count.
   let topArea = null
   let topAreaCount = 0
   Object.entries(areaCounts).forEach(([area, count]) => {
@@ -18,7 +15,6 @@ function StatsCards({ meals }) {
     }
   })
 
-  // A Set only keeps unique values, so its size is the number of categories.
   const uniqueCategories = new Set(meals.map((meal) => meal.strCategory)).size
 
   return (

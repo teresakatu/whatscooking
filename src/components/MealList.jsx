@@ -18,8 +18,6 @@ function MealList({ meals }) {
         <span>Cuisine</span>
       </div>
 
-      {/* .map() turns each meal object into a <MealRow>. idMeal is unique,
-          so React uses it as the key to track rows between renders. */}
       {meals.map((meal) => (
         <MealRow key={meal.idMeal} meal={meal} />
       ))}

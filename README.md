@@ -1,10 +1,10 @@
 # Web Development Project 5 - *What's Cooking?*
 
-Submitted by: **Your Name Here**
+Submitted by: **Teresa Nguyen**
 
 This web app: **A React recipe dashboard that loads a few hundred meals from TheMealDB and lets you explore them with a live name search, category and cuisine dropdown filters, and summary statistics that update as you filter.**
 
-Time spent: **X** hours spent in total
+Time spent: **5** hours spent in total
 
 ## Required Features
 
@@ -93,7 +93,7 @@ src/
 
 ## License
 
-    Copyright 2026 Your Name Here
+    Copyright 2026 Teresa Nguyen
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

@@ -1,5 +1,3 @@
-// A "controlled" form: the values live in App's state and are passed in as
-// props. Every change calls back up to App, which re-renders with new values.
 function FilterBar({
   searchQuery,
   onSearchChange,

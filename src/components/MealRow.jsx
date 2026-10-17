@@ -1,7 +1,6 @@
 function MealRow({ meal }) {
   return (
     <div className="meal-row">
-      {/* TheMealDB serves a smaller thumbnail when you add /preview */}
       <img
         className="meal-thumb"
         src={`${meal.strMealThumb}/preview`}
