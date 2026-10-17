@@ -1,4 +1,4 @@
-# Web Development Project 5 - *What's Cooking?*
+# Web Development Project 5 - What's Cooking
 
 Submitted by: **Teresa Nguyen**
 
@@ -46,52 +46,14 @@ The following **additional** features are implemented:
 * [x] Loading message while data is fetched and an error message if any request fails
 * [x] Dropdown options are loaded from the API (`list.php?c=list` and `list.php?a=list`) instead of being hard-coded
 * [x] Responsive layout: stat cards and list rows stack on phone-sized screens
-* [x] Polished UI: gradient header, icon stat cards, color-coded category and cuisine tags, a loading spinner, and a "Showing X of Y" meal count
-* [x] "Clear filters" is disabled when no filters are active, and the empty state has its own clear button
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+https://i.imgur.com/fMb1wQh.gif
 
-<!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
-<!-- Recommended tools:
-[Kap](https://getkap.co/) for macOS
-[ScreenToGif](https://www.screentogif.com/) for Windows
-[peek](https://github.com/phw/peek) for Linux. -->
-
-## Notes
-
-Describe any challenges encountered while building the app.
-
-- TheMealDB has no "list all meals" endpoint, so the app requests meals by first letter (a–z) in parallel and merges the results. Letters with no meals return `{ "meals": null }`, which have to be skipped before combining.
-
-## Running locally
-
-```bash
-npm install
-npm run dev
-```
-
-Then open the URL Vite prints (usually http://localhost:5173).
-
-## Project structure
-
-```
-src/
-  App.jsx                 state, data fetching, combined filter logic
-  App.css                 dashboard layout and component styles
-  index.css               global styles and color variables
-  main.jsx                mounts <App /> into index.html
-  components/
-    Header.jsx            app title
-    StatsCards.jsx        computes and shows the three summary stats
-    FilterBar.jsx         search input, category and cuisine dropdowns, clear button
-    MealList.jsx          renders rows with .map(), or the "no matches" message
-    MealRow.jsx           one meal: thumbnail, name, category, cuisine
-```
+GIF created with [Kap](https://getkap.co/) for macOS
 
 ## License
 
