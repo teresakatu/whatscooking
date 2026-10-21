@@ -10,7 +10,7 @@ import {
   YAxis,
 } from 'recharts'
 import ChartTooltip from './ChartTooltip.jsx'
-import { countBy } from '../../utils/meals.js'
+import { UNKNOWN, countBy } from '../../utils/meals.js'
 
 const MAX_BARS = 8
 
@@ -23,7 +23,9 @@ function BreakdownChart({ meals }) {
   const [view, setView] = useState('area')
   const { key, plural } = VIEWS[view]
 
-  const counts = countBy(meals, key)
+  const allCounts = countBy(meals, key)
+  const counts = allCounts.filter((item) => item.name !== UNKNOWN)
+  const unknown = allCounts.find((item) => item.name === UNKNOWN)
   const data = counts.slice(0, MAX_BARS)
   const rest = counts.slice(MAX_BARS)
   if (rest.length > 0) {
@@ -32,6 +34,9 @@ function BreakdownChart({ meals }) {
       count: rest.reduce((sum, item) => sum + item.count, 0),
       isOther: true,
     })
+  }
+  if (unknown) {
+    data.push({ name: 'Not listed', count: unknown.count, isOther: true })
   }
 
   const leader = counts[0]

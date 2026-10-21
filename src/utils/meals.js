@@ -1,3 +1,5 @@
+export const UNKNOWN = 'Unknown'
+
 export const API_BASE = 'https://www.themealdb.com/api/json/v1/1'
 
 export async function fetchJson(url) {
@@ -22,7 +24,7 @@ export function getIngredients(meal) {
 export function countBy(meals, key) {
   const counts = {}
   meals.forEach((meal) => {
-    const value = meal[key] || 'Unknown'
+    const value = meal[key] || UNKNOWN
     counts[value] = (counts[value] || 0) + 1
   })
   return Object.entries(counts)

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { UNKNOWN } from '../utils/meals.js'
 
 function MealRow({ meal }) {
   return (
@@ -14,7 +15,7 @@ function MealRow({ meal }) {
         <span className="pill pill-category">{meal.strCategory}</span>
       </span>
       <span className="meal-cuisine">
-        <span className="pill pill-cuisine">📍 {meal.strArea}</span>
+        <span className="pill pill-cuisine">📍 {meal.strArea || UNKNOWN}</span>
       </span>
       <span className="meal-arrow" aria-hidden="true">
         →

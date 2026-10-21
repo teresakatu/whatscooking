@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Header from '../components/Header.jsx'
-import { API_BASE, fetchJson, getIngredients } from '../utils/meals.js'
+import { API_BASE, UNKNOWN, fetchJson, getIngredients } from '../utils/meals.js'
 
 function getSteps(instructions) {
   return instructions
@@ -92,7 +92,7 @@ function MealDetail({ meals }) {
   return (
     <>
       <Header
-        badge={`${meal.strCategory} · ${meal.strArea}`}
+        badge={[meal.strCategory, meal.strArea].filter(Boolean).join(' · ')}
         title={meal.strMeal}
         subtitle={null}
       >
@@ -116,7 +116,7 @@ function MealDetail({ meals }) {
               <div className="fact">
                 <dt>Cuisine</dt>
                 <dd>
-                  <span className="pill pill-cuisine">📍 {meal.strArea}</span>
+                  <span className="pill pill-cuisine">📍 {meal.strArea || UNKNOWN}</span>
                 </dd>
               </div>
               <div className="fact">
@@ -199,7 +199,7 @@ function MealDetail({ meals }) {
                 <Link key={other.idMeal} to={`/meal/${other.idMeal}`} className="related-item">
                   <img src={`${other.strMealThumb}/preview`} alt="" loading="lazy" />
                   <span className="related-name">{other.strMeal}</span>
-                  <span className="related-area">📍 {other.strArea}</span>
+                  <span className="related-area">📍 {other.strArea || UNKNOWN}</span>
                 </Link>
               ))}
             </div>

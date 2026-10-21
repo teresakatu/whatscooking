@@ -3,6 +3,9 @@ function StatsCards({ meals }) {
 
   const areaCounts = {}
   meals.forEach((meal) => {
+    if (!meal.strArea) {
+      return
+    }
     areaCounts[meal.strArea] = (areaCounts[meal.strArea] || 0) + 1
   })
 
