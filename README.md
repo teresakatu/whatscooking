@@ -4,7 +4,7 @@ Submitted by: **Teresa Nguyen**
 
 This web app: **A React recipe dashboard built on TheMealDB. You can search and filter a few hundred meals by name, category, and cuisine, see charts and stats that update with your filters, and click any meal to open its own detail page with the full ingredient list, step-by-step instructions, and video link.**
 
-Time spent: **X** hours spent in total
+Time spent: **6** hours spent in total
 
 ## Required Features
 
@@ -57,7 +57,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+https://i.imgur.com/TNDqfoM.gif
 
 GIF created with [Kap](https://getkap.co/) for macOS
 
