@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom'
+
 function MealRow({ meal }) {
   return (
-    <div className="meal-row">
+    <Link to={`/meal/${meal.idMeal}`} className="meal-row">
       <img
         className="meal-thumb"
         src={`${meal.strMealThumb}/preview`}
@@ -14,7 +16,10 @@ function MealRow({ meal }) {
       <span className="meal-cuisine">
         <span className="pill pill-cuisine">📍 {meal.strArea}</span>
       </span>
-    </div>
+      <span className="meal-arrow" aria-hidden="true">
+        →
+      </span>
+    </Link>
   )
 }
 

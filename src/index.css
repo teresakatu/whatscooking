@@ -8,6 +8,7 @@
   --accent-soft: #fff0e5;
   --green: #2f7a4f;
   --green-soft: #e7f5ec;
+  --chart-muted: #d6c8b8;
   --border: #ece4d9;
   --radius: 16px;
   --shadow: 0 1px 2px rgba(60, 40, 20, 0.05), 0 8px 24px rgba(60, 40, 20, 0.07);
@@ -31,4 +32,8 @@ h1,
 h2,
 p {
   margin: 0;
+}
+
+a {
+  color: var(--accent-dark);
 }

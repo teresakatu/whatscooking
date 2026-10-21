@@ -28,6 +28,7 @@ function MealList({ meals, totalCount, onClear }) {
         <span>Name</span>
         <span>Category</span>
         <span>Cuisine</span>
+        <span />
       </div>
 
       {meals.map((meal) => (
